@@ -22,7 +22,11 @@ namespace PriceChecker
     {
         public MainWindow()
         {
+            string poloniexapi = "https://poloniex.com/public?command=returnTicker";
+            var poloniexdata = API.ApiData.GetJsonData<Poloniex>(poloniexapi);
+            
             InitializeComponent();
+            price.Content = poloniexdata.BTC_LBC.last;
         }
     }
 }
